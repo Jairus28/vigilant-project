@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>AnonSpeak - View Feedback</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="AnonSpeak, Safe, Anonymous Feedback, Students, Teachers" name="keywords">
+    <meta content="View anonymous feedback from students" name="description">
+
+ 
+    <link href="img/AS-LOGOjpg.jpg" rel="icon">
+
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+   
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    
+    <link href="css/style.css" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <div class="container-fluid nav-bar p-0">
+        <div class="container-lg p-0">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">A</span>non<span class="text-primary">S</span>peak</h1>
+                </a>
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+          
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="feedback.html">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup.html">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="img-fluid" src="img/feedback.jpg" alt="Image">
+                <div class="carousel-caption d-flex align-items-center justify-content-center">
+                    <div class="p-5" style="width: 100%; max-width: 900px;">
+                        <h5 class="text-white text-uppercase mb-md-3">Thank You for Sharing Your Feedback</h5>
+                        <h1 class="display-3 text-white mb-md-4">We Value Your Voice</h1>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </div>
+
+    
+   
+    <div class="container-fluid pt-5 pb-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Feedback Received</h2>
+            <div id="feedback-list">
+               
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="container-fluid bg-dark text-white mt-5 pt-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 mt-n2 text-white display-4"><span class="text-primary">A</span>non<span class="text-primary">S</span>peak</h1>
+                </a>
+                <p>AnonSpeak provides a platform for students and teachers to communicate anonymously, constructively, and respectfully.</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white mb-4">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="about.html" class="text-white">About</a></li>
+                    <li><a href="feedback.html" class="text-white">Feeback</a></li>
+                    <li><a href="login.html" class="text-white">Login</a></li>
+                    <li><a href="signup.html" class="text-white">Signup</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white mb-4">Contact</h5>
+                <p class="text-white mb-1"><i class="fa fa-map-marker-alt mr-3"></i>Holy Cross of Davao College, Davao City, Philippines</p>
+
+                <p class="text-white mb-1"><i class="fa fa-phone-alt mr-3"></i>+123 456 7890</p>
+                <p class="text-white mb-1"><i class="fa fa-envelope mr-3"></i>contact@anonspeak.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white mb-4">Follow Us</h5>
+                <a href="#" class="btn btn-primary btn-lg mr-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="btn btn-primary btn-lg mr-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="btn btn-primary btn-lg mr-3"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.onload = function() {
+            let feedbackArray = JSON.parse(localStorage.getItem('feedbacks')) || [];
+            let feedbackList = document.getElementById('feedback-list');
+
+            feedbackArray.forEach(feedback => {
+                let feedbackDiv = document.createElement('div');
+                feedbackDiv.classList.add('feedback-item');
+                feedbackDiv.innerHTML = `
+                    <div class="feedback">
+                        <p><strong>Name:</strong> ${feedback.name}</p>
+                        <p><strong>Email:</strong> ${feedback.email}</p>
+                        <p><strong>Message:</strong> ${feedback.message}</p>
+                    </div>
+                    <hr>
+                `;
+                feedbackList.appendChild(feedbackDiv);
+            });
+        };
+        ///localStorage.removeItem('feedbacks');
+
+    </script>
+</body>
+</html>
